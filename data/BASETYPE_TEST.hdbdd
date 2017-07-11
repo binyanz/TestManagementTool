@@ -1,0 +1,13 @@
+namespace HelloWorldUI5.data;
+
+@Schema: 'TEST_MANAGEMENT_TEST'
+context BASETYPE_TEST {
+
+	type BusinessKey : String(10);
+	type SString  : hana.VARCHAR(40);
+	type MString  : String(60);
+	type LString  : String(255);
+	type VLString : String(1024);
+	type SDate : LocalDate;
+
+};

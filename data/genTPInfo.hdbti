@@ -1,0 +1,8 @@
+import = [
+		{
+		table = "HelloWorldUI5.data::TESTPLAN_TEST.TP_Info";
+		schema = "TEST_MANAGEMENT_TEST";
+		file = "HelloWorldUI5.data:genTPInfo.csv";
+		header = false;
+		}
+];

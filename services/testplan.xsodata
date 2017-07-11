@@ -1,0 +1,12 @@
+// To define an XS OData service, you can use the following syntax.
+// In the example below Aggregation, Modification and Association are defined.
+
+service namespace "HelloWorldUI5.services" {
+   "HelloWorldUI5.data::TESTPLAN_TEST.TP_Info" as "TestPlanGeneralInfo" 
+     create using "HelloWorldUI5.procedures::TPCreateMethod" ;
+     }
+
+
+settings {
+    metadata cache-control "max-age= 604800";
+}

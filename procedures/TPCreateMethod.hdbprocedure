@@ -1,0 +1,36 @@
+PROCEDURE "TEST_MANAGEMENT_TEST"."HelloWorldUI5.procedures::TPCreateMethod" (IN im_row "TEST_MANAGEMENT_TEST"."HelloWorldUI5.data::TESTPLAN_TEST.TP_Info", OUT ex_error "TEST_MANAGEMENT_TEST"."HelloWorldUI5.data::Procedures.tt_errors") 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER 
+	--DEFAULT SCHEMA <default_schema_name>
+	AS
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+	declare lv_tpid string;
+	declare lv_tpname string;
+	declare lv_jiraid string;
+	declare lv_owner string;
+	declare lv_stream string;
+	declare lv_package string;
+	declare lv_tpversion string;
+	declare lv_description string;
+	declare lv_version string;
+	
+	select TPID, TP_NAME, JIRA_ID, OWNER, STREAM, PACKAGE, TPVERSION, DESCRIPTION
+	     into lv_tpid, lv_tpname, lv_jiraid, lv_owner, lv_stream, lv_package, lv_version, lv_description
+	                      from :im_row;
+	                     
+	                     
+	 if :lv_jiraid = '' then
+	  ex_error = select 500 as http_status_code, 
+	               'Invalid jiraID ' || lv_tpname as error_message, 
+	                     'No Way! JIRAID field can not be empty' as detail from dummy;
+	 else
+	                      
+	   insert into "TEST_MANAGEMENT_TEST"."HelloWorldUI5.data::TESTPLAN_TEST.TP_Info" 
+	             values ("HelloWorldUI5.data::tpsequence".NEXTVAL, lv_tpname, 
+	                     lv_jiraid, lv_owner, lv_stream, lv_package, lv_tpversion, lv_description);
+	                     
+	 end if; 
+END;

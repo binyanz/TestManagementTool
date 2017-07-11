@@ -1,0 +1,11 @@
+// To define an HDB Sequence, you can use the following code.
+// In the example below a schema and table/view should exist in sample.test package
+
+schema= "TEST_MANAGEMENT_TEST";
+start_with= 100000001;
+maxvalue= 999999999;
+nomaxvalue=false;
+minvalue= 1;
+nominvalue=true;
+cycles= false;
+depends_on_table= "HelloWorldUI5.data::TESTPLAN_TEST.TP_Info";

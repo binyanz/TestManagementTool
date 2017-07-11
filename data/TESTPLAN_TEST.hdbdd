@@ -1,0 +1,50 @@
+namespace HelloWorldUI5.data;
+
+using HelloWorldUI5.data::BASETYPE_TEST;
+
+@Schema: 'TEST_MANAGEMENT_TEST'
+context TESTPLAN_TEST {
+
+    @Catalog.tableType : #COLUMN
+    entity TP_Info {
+		key TPID : String(11);
+		@SearchIndex.text: { enabled: true, name: 'F_TPBYNAME', storeOriginalContent: true, async: true}
+	    TP_NAME : BASETYPE_TEST.MString;
+	    @SearchIndex.text: { enabled: true, name: 'F_TPBYJIRA', storeOriginalContent: true, async: true}
+		JIRA_ID : BASETYPE_TEST.LString;
+		@SearchIndex.text: { enabled: true, name: 'F_TPBYOWNER', storeOriginalContent: true, async: true}
+		OWNER : BASETYPE_TEST.LString;
+		STREAM: BASETYPE_TEST.LString;
+		PACKAGE: BASETYPE_TEST.LString;
+		TPVERSION: BASETYPE_TEST.MString;
+		DESCRIPTION: BASETYPE_TEST.MString;
+		TEST_CASES: Association[*] to TC_Info on TEST_CASES.TPID = TPID; 
+	};
+	
+	@Catalog.tableType : #COLUMN
+    entity TC_Info {
+		key TC_ID : String(11);
+		key TPID : String(11);
+	    TC_NAME : BASETYPE_TEST.LString;
+		PRECONDITIONS : BASETYPE_TEST.VLString;
+		STEPS : BASETYPE_TEST.LString;
+		EXPECTED_RESULT : BASETYPE_TEST.MString;
+		COMMENTS: BASETYPE_TEST.LString null;
+		TP: Association[1] to TP_Info on TP.TPID = TPID;
+	};
+
+	define view TestPlanTableView as SELECT from TP_Info {
+		TPID as "TestPlanID",
+		TP_NAME as "TestPlanName",
+		JIRA_ID as "JiraId",
+		OWNER as "Owner",
+		STREAM as "Stream",
+		PACKAGE as "Package",
+		TPVERSION as "TestPlanVersion",
+		DESCRIPTION as "Description"
+		
+
+	};
+
+
+};

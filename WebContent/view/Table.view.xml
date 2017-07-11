@@ -1,0 +1,88 @@
+<sap.ui.core.mvc:View controllerName="HelloWorldUI5.view.Table"
+    xmlns:sap.ui.table="sap.ui.table"
+    xmlns:sap.ui.commons="sap.ui.commons"
+    xmlns:sap.ui.core="sap.ui.core"
+    xmlns:sap.ui.core.mvc="sap.ui.core.mvc"
+    xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <sap.ui.table:Table id="tpTable" visibleRowCount="4" selectionMode="Single" selectionBehavior="Row" navigationMode="Scrollbar" rows="{/TestPlanGeneralInfo}" rowSelectionChange="onRowSelectionChange">
+        <sap.ui.table:toolbar>
+            <sap.ui.commons:Toolbar id="tb1" design="Standard" standalone="false">
+                <sap.ui.commons:items> 
+                    <sap.ui.commons:Button id="btnNew" text="{i18n>new}" tooltip="{i18n>create}" press="onTBPress"></sap.ui.commons:Button>
+                    <sap.ui.commons:Button id="btnEdit" text="{i18n>edit}" tooltip="{i18n>t_edit}" press="onTBPress"></sap.ui.commons:Button>
+                    <sap.ui.commons:Button id="btnDelete" text="{i18n>delete}" tooltip="{i18n>t_delete}" press="onTBPress"></sap.ui.commons:Button>               
+                    <sap.ui.commons:ToolbarSeparator design="Standard"></sap.ui.commons:ToolbarSeparator>
+                    <sap.ui.commons:Button id="btnExcel" text="{i18n>excel}" tooltip="{i18n>t_excel}" press="onTBPress"></sap.ui.commons:Button>
+                    <sap.ui.commons:Button id="btnZip" text="{i18n>zip}" tooltip="{i18n>t_zip}" press="onTBPress"></sap.ui.commons:Button>                   
+                    <sap.ui.commons:Button class="helpButton" text="?" data:tileDialog="2" press="openTileDialog"></sap.ui.commons:Button>
+                </sap.ui.commons:items>
+            </sap.ui.commons:Toolbar>
+        </sap.ui.table:toolbar>
+        <sap.ui.table:columns>
+            <sap.ui.table:Column sortProperty="TPID" filterProperty="TPID" filterOperator="EQ">
+                <sap.ui.table:label>
+                    <sap.ui.commons:Label text="{i18n>tpid}" requiredAtBegin="false"></sap.ui.commons:Label>
+                </sap.ui.table:label>
+                <sap.ui.table:template>
+                    <sap.ui.commons:TextView text="{TPID}"></sap.ui.commons:TextView>
+                </sap.ui.table:template>
+            </sap.ui.table:Column>
+            <sap.ui.table:Column sortProperty="TP_NAME" filterProperty="TP_NAME" filterOperator="EQ">
+                <sap.ui.table:label>
+                    <sap.ui.commons:Label text="{i18n>tpname}" requiredAtBegin="false"></sap.ui.commons:Label>
+                </sap.ui.table:label>
+                <sap.ui.table:template>
+                    <sap.ui.commons:TextView text="{TP_NAME}"></sap.ui.commons:TextView>
+                </sap.ui.table:template>
+            </sap.ui.table:Column>
+            <sap.ui.table:Column width="125px" sortProperty="JIRA_ID" filterProperty="JIRA_ID">
+                <sap.ui.table:label>
+                    <sap.ui.commons:Label text="{i18n>jira}" requiredAtBegin="false"></sap.ui.commons:Label>
+                </sap.ui.table:label>
+                <sap.ui.table:template>
+                    <sap.ui.commons:TextView text="{JIRA_ID}"></sap.ui.commons:TextView>
+                </sap.ui.table:template>
+            </sap.ui.table:Column>
+            <sap.ui.table:Column sortProperty="OWNER" filterProperty="OWNER">
+                <sap.ui.table:label>
+                    <sap.ui.commons:Label text="{i18n>owner}" requiredAtBegin="false"></sap.ui.commons:Label>
+                </sap.ui.table:label>
+                <sap.ui.table:template>
+                    <sap.ui.commons:TextView text="{OWNER}"></sap.ui.commons:TextView>
+                </sap.ui.table:template>
+            </sap.ui.table:Column>
+            <sap.ui.table:Column sortProperty="STREAM" filterProperty="STREAM">
+                <sap.ui.table:label>
+                    <sap.ui.commons:Label text="{i18n>stream}" requiredAtBegin="false"></sap.ui.commons:Label>
+                </sap.ui.table:label>
+                <sap.ui.table:template>
+                    <sap.ui.commons:TextView text="{STREAM}"></sap.ui.commons:TextView>
+                </sap.ui.table:template>
+            </sap.ui.table:Column>
+            <sap.ui.table:Column sortProperty="PACKAGE" filterProperty="PACKAGE">
+                <sap.ui.table:label>
+                    <sap.ui.commons:Label text="{i18n>package}" requiredAtBegin="false"></sap.ui.commons:Label>
+                </sap.ui.table:label>
+                <sap.ui.table:template>
+                    <sap.ui.commons:TextView text="{PACKAGE}"></sap.ui.commons:TextView>
+                </sap.ui.table:template>
+            </sap.ui.table:Column>
+            <sap.ui.table:Column hAlign="End" sortProperty="TPVERSION">
+                <sap.ui.table:label>
+                    <sap.ui.commons:Label text="{i18n>version}" requiredAtBegin="false"></sap.ui.commons:Label>
+                </sap.ui.table:label>
+                <sap.ui.table:template>
+                    <sap.ui.commons:TextView text="{TPVERSION}" textAlign="End"></sap.ui.commons:TextView>
+                </sap.ui.table:template>
+            </sap.ui.table:Column>
+            <sap.ui.table:Column sortProperty="DESCRIPTION" filterProperty="DESCRIPTION">
+                <sap.ui.table:label>
+                    <sap.ui.commons:Label text="{i18n>description}" requiredAtBegin="false"></sap.ui.commons:Label>
+                </sap.ui.table:label>
+                <sap.ui.table:template>
+                    <sap.ui.commons:TextView text="{DESCRIPTION}"></sap.ui.commons:TextView>
+                </sap.ui.table:template>
+            </sap.ui.table:Column>            
+        </sap.ui.table:columns>
+    </sap.ui.table:Table>
+</sap.ui.core.mvc:View>  

@@ -1,0 +1,150 @@
+<sap.ui.core.mvc:View controllerName="HelloWorldUI5.view.Detail"
+    xmlns:sap.ui.commons="sap.ui.commons"
+    xmlns:sap.ui.commons.layout="sap.ui.commons.layout"
+    xmlns:sap.ui.core="sap.ui.core"
+    xmlns:sap.ui.table="sap.ui.table"
+    xmlns:sap.viz.ui5="sap.viz.ui5"
+    xmlns:sap.viz.ui5.data="sap.viz.ui5.data"
+    xmlns:sap.viz.ui5.types="sap.viz.ui5.types"
+    xmlns:sap.viz.ui5.types.legend="sap.viz.ui5.types.legend"
+    xmlns:sap.viz.ui5.types.controller="sap.viz.ui5.types.controller"
+    xmlns:sap.ui.core.mvc="sap.ui.core.mvc" >
+    <sap.ui.commons:TabStrip id="tabStripDetail" width="100%">
+        <sap.ui.commons:tabs>
+            <sap.ui.commons:Tab id="tabStripDetail-0" text="{i18n>general}">
+                <sap.ui.commons:content>
+                    <sap.ui.commons.layout:MatrixLayout id="mLayout1">
+                        <sap.ui.commons.layout:rows>
+                            <sap.ui.commons.layout:MatrixLayoutRow>
+                                <sap.ui.commons.layout:cells>
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:Label id="lblTestPlanId" labelFor="txtTestPlanId" text="{i18n>tpid}" requiredAtBegin="false"></sap.ui.commons:Label>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:TextView id="txtTestPlanId" text="{TestPlanID}" tooltip="{i18n>tpid}"></sap.ui.commons:TextView>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>  
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:Label id="lblTestPlanName" labelFor="txtTestPlanNameId" text="{i18n>tpname}" requiredAtBegin="false"></sap.ui.commons:Label>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell> 
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:TextView id="txtTestPlanNameId" text="{TestPlanName}" tooltip="{i18n>tpname}"></sap.ui.commons:TextView>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>   
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:Label id="lblJiraId" labelFor="txtJiraId" text="{i18n>jira}" requiredAtBegin="false"></sap.ui.commons:Label>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:TextView id="txtJiraId" text="{JiraId}" tooltip="{i18n>jira}"></sap.ui.commons:TextView>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>                         
+                                </sap.ui.commons.layout:cells>
+                            </sap.ui.commons.layout:MatrixLayoutRow>
+                            <sap.ui.commons.layout:MatrixLayoutRow>
+                                <sap.ui.commons.layout:cells>                                   
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:Label id="lblOwner" labelFor="txtOwner" text="{i18n>owner}" requiredAtBegin="false"></sap.ui.commons:Label>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:TextView id="txtOwner" text="{Owner}" tooltip="{i18n>owner}"></sap.ui.commons:TextView>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:Label id="lblStream" labelFor="txtStream" text="{i18n>stream}" requiredAtBegin="false"></sap.ui.commons:Label>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:TextView id="txtStream" text="{Stream}" tooltip="{i18n>stream}"></sap.ui.commons:TextView>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:Label id="lblPackage" labelFor="txtPackage" text="{i18n>package}" requiredAtBegin="false"></sap.ui.commons:Label>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:TextView id="txtPackage" text="{Package}" tooltip="{i18n>package}"></sap.ui.commons:TextView>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>
+                                </sap.ui.commons.layout:cells>
+                            </sap.ui.commons.layout:MatrixLayoutRow>
+                            <sap.ui.commons.layout:MatrixLayoutRow>
+                                <sap.ui.commons.layout:cells>                                   
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:Label id="lblVersion" labelFor="txtVersion" text="{i18n>version}" requiredAtBegin="false"></sap.ui.commons:Label>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:TextView id="txtVersion" text="{TestPlanVersion}" tooltip="{i18n>version}"></sap.ui.commons:TextView>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:Label id="lblDescription" labelFor="txtDescription" text="{i18n>description}" requiredAtBegin="false"></sap.ui.commons:Label>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:TextView id="txtDescription" text="{Description}" tooltip="{i18n>description}"></sap.ui.commons:TextView>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>
+                                </sap.ui.commons.layout:cells>
+                            </sap.ui.commons.layout:MatrixLayoutRow>
+                        </sap.ui.commons.layout:rows>
+                    </sap.ui.commons.layout:MatrixLayout>
+                </sap.ui.commons:content>
+            </sap.ui.commons:Tab>
+            <sap.ui.commons:Tab id="tabStripDetail-1" text="{i18n>tcs}">
+                <sap.ui.commons:content>
+                    <sap.ui.commons.layout:MatrixLayout id="mLayout2">
+                        <sap.ui.commons.layout:rows>
+                            <sap.ui.commons.layout:MatrixLayoutRow>
+                                <sap.ui.commons.layout:cells>
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:Label id="lblPurchaseOrderId2" labelFor="txtPurchaseOrderId" text="{i18n>tpid}" requiredAtBegin="false"></sap.ui.commons:Label>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>                                 
+                                </sap.ui.commons.layout:cells>
+                            </sap.ui.commons.layout:MatrixLayoutRow>
+                        </sap.ui.commons.layout:rows>
+                    </sap.ui.commons.layout:MatrixLayout>
+                </sap.ui.commons:content>
+            </sap.ui.commons:Tab>
+            <sap.ui.commons:Tab id="tabStripDetail-3" text="{i18n>reports}">
+                <sap.ui.commons:content>
+                    <sap.ui.commons.layout:MatrixLayout id="mLayout3">
+                        <sap.ui.commons.layout:rows>
+                            <sap.ui.commons.layout:MatrixLayoutRow>
+                                <sap.ui.commons.layout:cells>
+                                    <sap.ui.commons.layout:MatrixLayoutCell>
+                                        <sap.ui.commons.layout:content>
+                                            <sap.ui.commons:Label id="lblPurchaseOrderId3" labelFor="txtPurchaseOrderId" text="{i18n>tpid}" requiredAtBegin="false"></sap.ui.commons:Label>
+                                        </sap.ui.commons.layout:content>
+                                    </sap.ui.commons.layout:MatrixLayoutCell>                                 
+                                </sap.ui.commons.layout:cells>
+                            </sap.ui.commons.layout:MatrixLayoutRow>
+                        </sap.ui.commons.layout:rows>
+                    </sap.ui.commons.layout:MatrixLayout>
+                </sap.ui.commons:content>
+            </sap.ui.commons:Tab>
+        </sap.ui.commons:tabs>
+    </sap.ui.commons:TabStrip>
+</sap.ui.core.mvc:View>

@@ -1,0 +1,9 @@
+import = [
+            
+            {
+                cdstable = "HelloWorldUI5.data::Util.Messages";
+                file = "HelloWorldUI5.data:return_messages.csv";
+                header = true;
+                useHeaderNames = true;       
+            }
+           ];
