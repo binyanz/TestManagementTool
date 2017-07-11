@@ -46,5 +46,16 @@ context TESTPLAN_TEST {
 
 	};
 
+	define view TestCaseTableView as SELECT from TC_Info {
+		TC_ID as "TestCaseID",
+		TPID as "TestPlanIDinTestCase",
+		TC_NAME as "TestCaseName",
+		PRECONDITIONS as "Pre_Conditions",
+		STEPS as "Steps",
+		EXPECTED_RESULT as "Result",
+		COMMENTS as "Comments"
+
+	};
+
 
 };

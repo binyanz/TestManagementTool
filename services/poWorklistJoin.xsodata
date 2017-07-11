@@ -1,12 +1,12 @@
 service namespace "HelloWorldUI5.services" { 
 
-   "HelloWorldUI5.data::TESTPLAN_TEST.TestPlanTableView" as "TestPlanTableView" keys ("PurchaseOrderId") 
-   navigates ("PO_Item" as "PurchaseOrderItem");
+   "HelloWorldUI5.data::TESTPLAN_TEST.TestPlanTableView" as "TestPlanTableView" keys ("TestPlanID") 
+   navigates ("Test_Case" as "TC_Info");
    
-   "sap.hana.democontent.epm.models::PO_ITEM" as "PurchaseOrderItem" keys ("PURCHASEORDERID","PURCHASEORDERITEM");
+   "HelloWorldUI5.data::TESTPLAN_TEST.TestCaseTableView" as "TestCaseTableView" keys ("TestCaseID", "TestPlanIDinTestCase");
    
-   association "PO_Item" principal "TestPlanTableView"("PurchaseOrderId") 
-     multiplicity "1" dependent "PurchaseOrderItem"("PURCHASEORDERID") multiplicity "*";
+   association "Test_Case" principal "TestPlanTableView"("TestPlanID") 
+     multiplicity "1" dependent "TestCaseTableView"("TestCaseID") multiplicity "*";
 }
 
 settings {
